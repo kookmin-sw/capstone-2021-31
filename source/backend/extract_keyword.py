@@ -7,28 +7,19 @@ import os
 import glob
 from datetime import datetime, timedelta
 from enum import Enum, auto
+from filter_keyword import *
 
-TMP = '_3'
+TMP = '_test2'
 CRAWLING_FOLDER_PATH = '../../data/crawling_data'
-KEYWORD_FOLDER_PATH  = '../../data/hot_keyword_data'
-FILTER_KEYWORD = ['영상', '구독', '좋아요', '댓글', '오늘', '예능',
-                  '직캠', '방송', '한국', '보기', '문의',
-                  '채널', '유튜브', '이메일', '가입', '이야기',
-                  '시간', '업로드', '광고', '지금', '시즌',
-                  '인스타', '인스타그램', '페북', '페이스북', '공식',
-                  '레전드', '게임', '일상', '노래', '브금',
-                  '편집', '촬영', '공개', '추천', '그램',
-                  '몰카', '모음', '웃음', '사랑', '정보',
-                  '요리', '제품', '음악', '만들기', '사람', '세상', '월드',
-                  '여러분','먹방', '협찬', '장소', '제작', '모든', '구매',
-                  '정말', '최근', '위해', '우리', '다음', '리뷰',
-                  '이번', '출처', '요즘', '사용', '메일', '다시', '마음',
-                  '생각', '사연', '\s이유']
+KEYWORD_FOLDER_PATH = '../../data/hot_keyword_data'
+
+FILTER_KEYWORD = read_filterList()
 
 # WEIGHT = [1,1,1,1,1,
 #           1,1,1,1,1,
 #           1,1,1,1,1,
 #           1,1,1,1,1]
+
 WEIGHT = [4, 4, 2, 2, 2,
           2, 2, 2, 2, 2,
           1, 1, 1, 1, 1,
