@@ -35,7 +35,8 @@ Through this, users can identify trends that are popular these days at a glance.
 
 **유지석(20153200)**
 역할 : 핫 키워드 추출 & 백엔드 설계
-![Uploading KakaoTalk_20210203_124430338.jpg…]()
+![KakaoTalk_20210203_124430338](https://user-images.githubusercontent.com/36405155/113280399-30fba700-931f-11eb-9791-894899a466e4.jpg)
+
 
 **정용훈(20153227)**
 역할 : 프론트 엔드 & 데이터 크롤링
