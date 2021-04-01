@@ -42,13 +42,13 @@ Through this, users can identify trends that are popular these days at a glance.
 
 ## 3. 팀 소개
 
-**유지석(20153200)**
+**유지석(20153200)**  
 역할 : 핫 키워드 추출 & 백엔드 설계  
 ![변경](https://user-images.githubusercontent.com/36405155/113280712-9fd90000-931f-11eb-88ea-8e927c4f37b9.jpg)
 
 
 
-**정용훈(20153227)**
+**정용훈(20153227)**  
 역할 : 프론트 엔드 & 데이터 크롤링
 
 
