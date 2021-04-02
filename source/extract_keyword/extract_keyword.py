@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 from enum import Enum, auto
 from filter_keyword import *
 
-TMP = '_test2'
+TMP = ''
 CRAWLING_FOLDER_PATH = '../../data/crawling_data'
 KEYWORD_FOLDER_PATH = '../../data/hot_keyword_data'
 
@@ -190,7 +190,7 @@ def get_keywords(corpus):
 if __name__ == "__main__":
     ## 입출력 변수 설정
     output_type = OUTPUT_TYPE.DAILY
-    some_date_str = '21-03-30'
+    some_date_str = '21-04-01'
     some_date = datetime.today() - timedelta(days=0) if some_date_str == '' else datetime.strptime(some_date_str,'%y-%m-%d')
     #attrs = ['title', 'description', 'tags']
     attrs = ['title', 'description']

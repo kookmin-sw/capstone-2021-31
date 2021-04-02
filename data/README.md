@@ -1,4 +1,4 @@
-# data 파일 소개
+# data 디렉토리 소개
 
 ## crawling_data
 ### 설명
