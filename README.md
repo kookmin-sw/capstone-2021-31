@@ -11,7 +11,7 @@
 
 ### Abstract  
 Many people spend their spare time watching YouTube.
-I think YouTube, which is close to modern cultural life, melts the trend that is in vogue.
+YouTube melts the trend that is in vogue.
 But We don't have much time to watch a lot of Youtube videos to find out the trend.
 Therefore, we develop a site that organizes hot keywords using popular video data.
 Through this, users can identify trends that are popular these days at a glance.
