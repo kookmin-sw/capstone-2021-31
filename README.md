@@ -1,4 +1,5 @@
 # Welcome to 31조
+  
 ## 1. 프로젝트 소개
 ### 유튜브 핫🔥 키워드
  
@@ -61,7 +62,7 @@ Through this, users can identify trends that are popular these days at a glance.
 
 🔨**라이브러리/오픈소스**
 
-프론트 엔드 : vue.js & tailwindcss
-백엔드 : Django
-데이터 수집/처리 : YouTube data API & Konlpy
+프론트 엔드 : vue.js & tailwindcss  
+백엔드 : Django  
+데이터 수집/처리 : YouTube data API & Konlpy  
 
