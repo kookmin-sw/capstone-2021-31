@@ -1,17 +1,17 @@
 # Welcome to 31조
-## 1. 프로잭트 소개
-**유튜브 핫🔥 키워드**
+## 1. 프로젝트 소개
+### 유튜브 핫🔥 키워드
  
-요즘 사람들은 유튜브를 시청하며 많은 시간을 보낸다. 
-이렇듯 현대 문화 생활과 밀접한 유튜브에는 유행하고 있는 트렌드가 녹아있다고 생각한다. 그러나 요즘 트렌드를 따라가기 위해 수 많은 영상들을 다 볼 순 없는 노릇.
+요즘 사람들은 유튜브를 시청하며 많은 시간을 보낸다.  
+이렇듯 유튜브는 현대 문화 생화과 밀접하며, 유튜브엔 유행하고 있는 트렌드가 녹아있다고 생각한다. 그러나 요즘 트렌드를 따라가기 위해 수 많은 영상들을 다 볼 순 없는 노릇.
 그래서 우리는 한 눈에 요즘 트렌트를 파악할 수 있도록 인기 동영상 데이터를 이용하여 핫 키워드를 정리해주는 사이트를 개발하고자 한다.
 이를 통해 사용자는 한 눈에 요즘 유행하는 트렌드를 파악할 수 있다.
 
 
 
-**Abstract**  
+### Abstract  
 Many people spend their spare time watching YouTube.
-I think YouTube, which is close to modern cultural life, melts the trend that is in vogue.
+YouTube melts the trend that is in vogue.
 But We don't have much time to watch a lot of Youtube videos to find out the trend.
 Therefore, we develop a site that organizes hot keywords using popular video data.
 Through this, users can identify trends that are popular these days at a glance.
@@ -19,14 +19,14 @@ Through this, users can identify trends that are popular these days at a glance.
 
 
 
-**기능**
+### 기능
 
 🏆 1일/1주 동안 핫 키워드를 알려주는 기능  
 📮 사용자 이메일로 주간 핫 키워드를 발송해주는 기능
 
 
 
-**타겟층**
+### 타겟층
 
 😴 유행에 둔감하지만, 요즘 유행하는 걸 알고 싶은 사용자  
 😎 유행에 민감하지만, 작은 유행 하나라도 놓치기 싫은 사용자  
