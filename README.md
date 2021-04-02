@@ -26,7 +26,7 @@ Through this, users can identify trends that are popular these days at a glance.
 
 
 
-**타겟층**
+### 타겟층
 
 😴 유행에 둔감하지만, 요즘 유행하는 걸 알고 싶은 사용자  
 😎 유행에 민감하지만, 작은 유행 하나라도 놓치기 싫은 사용자  
