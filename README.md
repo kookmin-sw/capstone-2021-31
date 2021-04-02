@@ -44,12 +44,15 @@ Through this, users can identify trends that are popular these days at a glance.
 
 **유지석(20153200)**  
 역할 : 핫 키워드 추출 & 백엔드 설계  
-![변경](https://user-images.githubusercontent.com/36405155/113280712-9fd90000-931f-11eb-88ea-8e927c4f37b9.jpg)
+![유지석](https://user-images.githubusercontent.com/36405155/113304556-1df7cf80-933d-11eb-8726-902e470df8ff.jpg)
+
 
 
 
 **정용훈(20153227)**  
-역할 : 프론트 엔드 & 데이터 크롤링
+역할 : 프론트 엔드 & 데이터 크롤링  
+![정용훈](https://user-images.githubusercontent.com/36405155/113304579-23551a00-933d-11eb-83a2-47815ca503d8.jpg)
+
 
 
 
