@@ -7,6 +7,8 @@
 그래서 우리는 한 눈에 요즘 트렌트를 파악할 수 있도록 인기 동영상 데이터를 이용하여 핫 키워드를 정리해주는 사이트를 개발하고자 한다.
 이를 통해 사용자는 한 눈에 요즘 유행하는 트렌드를 파악할 수 있다.
   
+<br>
+  
 ### Abstract  
 Many people spend their spare time watching YouTube.
 YouTube melts the trend that is in vogue.
