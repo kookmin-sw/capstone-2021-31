@@ -1,9 +1,6 @@
-# Welcome to 31조 ✋
+# Tread 모아 Zoom 🔍
   
   ![Title](https://user-images.githubusercontent.com/36405155/113465318-0f5d0580-946e-11eb-8e74-d2de9ca6fd7c.jpeg)
-
-### Tread 모아 Zoom 🔍
-
 
 ## 1. 프로젝트 소개
 
