@@ -1,6 +1,6 @@
-# Tread 모아 Zoom🔍
-  
-  ![Title](https://user-images.githubusercontent.com/36405155/113465318-0f5d0580-946e-11eb-8e74-d2de9ca6fd7c.jpeg)
+
+# Trend 모아 Zoom🔍
+![크기변환 logo](https://user-images.githubusercontent.com/36405155/113472997-ba3ae700-94a1-11eb-8288-1e3726411386.png)
 
 <br>  
 
