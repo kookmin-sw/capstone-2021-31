@@ -45,7 +45,7 @@ Through this, users can identify trends that are popular these days at a glance.
   
 ## 3. 팀 소개
 
-**유지석(20153200)**  
+### 유지석(20153200)  
 메일 : reo0704@koookmin.ac.kr  
 **역할 : 핫 키워드 추출 & 백엔드 설계**      
 
@@ -53,7 +53,7 @@ Through this, users can identify trends that are popular these days at a glance.
   
 <br>
   
-**정용훈(20153227)**  
+### 정용훈(20153227)  
 메일 : andy7588@kookmin.ac.kr    
 **역할 : 프론트 엔드 & 데이터 크롤링**      
 ![정용훈](https://user-images.githubusercontent.com/36405155/113304579-23551a00-933d-11eb-83a2-47815ca503d8.jpg)
