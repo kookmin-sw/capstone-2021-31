@@ -40,7 +40,7 @@ Through this, users can identify trends that are popular these days at a glance.
   
 ## 2. 소개 영상
 프로젝트 소개하는 영상을 추가하세요
-https://youtu.be/XFx_wb8Ob9c    
+<iframe width="640" height="360" src="https://youtu.be/OqO09HueNe8" frameborder="0" gesture="media" allowfullscreen=""></iframe>   
 <br>
   
 ## 3. 팀 소개
