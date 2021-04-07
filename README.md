@@ -39,8 +39,6 @@ Through this, users can identify trends that are popular these days at a glance.
 <br>
   
 ## 2. 소개 영상
-프로젝트 소개하는 영상을 추가하세요
-[![예제](https://youtu.be/OqO09HueNe8/0.jpg)](https://youtu.be/OqO09HueNe8?t=0s)  
 [![모아 Zoom](https://user-images.githubusercontent.com/36405155/113856999-ee354580-97dc-11eb-8c7b-458c49224b7c.png)](https://youtu.be/OqO09HueNe8?t=0s)  
 
 <br>
