@@ -40,7 +40,8 @@ Through this, users can identify trends that are popular these days at a glance.
   
 ## 2. 소개 영상
 프로젝트 소개하는 영상을 추가하세요
-<iframe width="640" height="360" src="https://youtu.be/OqO09HueNe8" frameborder="0" gesture="media" allowfullscreen=""></iframe>   
+![모아 Zoom(https://user-images.githubusercontent.com/36405155/113856598-71a26700-97dc-11eb-9172-ea196b21b04c.png)](https://youtu.be/OqO09HueNe8)
+
 <br>
   
 ## 3. 팀 소개
