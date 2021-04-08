@@ -17,15 +17,15 @@
 <br>
   
 ### Abstract  
-Many people spend their spare time watching YouTube.
-YouTube melts the trend that is in vogue.
-But We don't have much time to watch a lot of Youtube videos to find out the trend.
-Therefore, we develop a site that organizes hot keywords using popular video data.
-Through this, users can identify trends that are popular these days at a glance.
+Many people spend their spare time watching YouTube.  
+YouTube melts the trend that is in vogue.  
+But We don't have much time to watch a lot of Youtube videos to find out the trend.  
+Therefore, we develop a site that organizes hot keywords using popular video data.  
+Through this, users can identify trends that are popular these days at a glance.  
   
 <br>
   
-### 기능
+### 주요 기능
 🏆 1일/1주 동안 핫 키워드를 알려주는 기능  
 📮 사용자 이메일로 주간 핫 키워드를 발송해주는 기능
   
