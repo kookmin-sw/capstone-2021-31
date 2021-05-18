@@ -1,5 +1,10 @@
+import json
 import requests, sys, time, os, argparse
+import boto3
+import csv
+import io
 
+print('Loading function')
 # List of simple to collect features
 snippet_features = ["title",
                     "publishedAt",
@@ -15,16 +20,9 @@ header = ["video_id"] + snippet_features + ["trending_date", "tags", "view_count
                                             "comment_count", "thumbnail_link", "comments_disabled",
                                             "ratings_disabled", "description"]
 
-CRAWLING_FOLDER_PATH = '../../data/crawling_data'
+api_key = "AIzaSyBDSzuWULwipdrY5kUGYb1m-vGhtsI0izs"
+country_codes = ['KR']
 
-def setup(api_path, code_path):
-    with open(api_path, 'r') as file:
-        api_key = file.readline()
-
-    with open(code_path) as file:
-        country_codes = [x.rstrip() for x in file]
-
-    return api_key, country_codes
 
 
 def prepare_feature(feature):
@@ -95,8 +93,8 @@ def get_videos(items):
 
         # Compiles all of the various bits of info into one consistently formatted line
         line = [video_id] + features + [prepare_feature(x) for x in [trending_date, tags, view_count, likes, dislikes,
-                                                                       comment_count, thumbnail_link, comments_disabled,
-                                                                       ratings_disabled, description]]
+                                                                     comment_count, thumbnail_link, comments_disabled,
+                                                                     ratings_disabled, description]]
         lines.append(",".join(line))
     return lines
 
@@ -138,19 +136,34 @@ def get_data():
     for country_code in country_codes:
         country_data = [",".join(header)] + get_pages(country_code)
         print(country_data)
-        #write_to_file(country_code, country_data)
 
 
-if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--key_path', help='Path to the file containing the api key, by default will use api_key.txt in the same directory', default='api_key.txt')
-    parser.add_argument('--country_code_path', help='Path to the file containing the list of country codes to scrape, by default will use country_codes.txt in the same directory', default='country_codes.txt')
-    parser.add_argument('--output_dir', help='Path to save the outputted files in', default=CRAWLING_FOLDER_PATH)
+# def lambda_handler(event, context):
+#     #print("Received event: " + json.dumps(event, indent=2))
+#     print("value11 = " + event['key1'])
+#     print("value22 = " + event['key2'])
+#     print("value33 = " + event['key3'])
+#     get_data()
 
-    args = parser.parse_args()
+#     csvio = io.StringIO()
+#     writer = csv.writer(csvio)
+#     writer.writer()
+#     return event['key2']  # Echo back the first key value
+#     #raise Exception('Something went wrong')
 
-    output_dir = args.output_dir
-    api_key, country_codes = setup(args.key_path, args.country_code_path)
+s3 = boto3.client('s3')
+ec2 = boto3.client('ec2')
 
-    get_data()
+def lambda_handler(event, context):
+    csvio = io.StringIO()
+    writer = csv.writer(csvio)
+    writer.writerow(['id', 'name'])
+    paginator = ec2.get_paginator('describe_security_groups').paginate()
+    for page in paginator:
+        for item in page['SecurityGroups']:
+            identity = item['GroupId']
+            name = item['GroupName']
+            writer.writerow([identity, name])
+    s3.put_object(Body=csvio.getvalue(), ContentType='text/csv', Bucket='crawling0bucket', Key='test.csv')
+    csvio.close()

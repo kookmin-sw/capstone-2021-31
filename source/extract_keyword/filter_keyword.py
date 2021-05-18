@@ -2,6 +2,9 @@
 def read_filterList(empty=False)->list:
     if empty:
         return list()
+
+    sort_filterList()
+
     with open('filtering_file.txt', 'r', encoding='utf8') as f:
         filter_list = f.read().splitlines()
         return filter_list

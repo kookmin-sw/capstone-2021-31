@@ -9,21 +9,21 @@ from datetime import datetime, timedelta
 from enum import Enum, auto
 from filter_keyword import *
 
-TMP = '_v2'
+TMP = '_f'
 CRAWLING_FOLDER_PATH = '../../data/crawling_data'
 KEYWORD_FOLDER_PATH = '../../data/hot_keyword_data'
 
 FILTER_KEYWORD = read_filterList(empty=False)
 
-WEIGHT = [1,1,1,1,1,
-          1,1,1,1,1,
-          1,1,1,1,1,
-          1,1,1,1,1]
-#
-# WEIGHT = [4, 4, 3, 3, 2,
-#           2, 2, 2, 2, 2,
-#           1, 1, 1, 1, 1,
-#           1, 1, 1, 1, 1, ]
+# WEIGHT = [2,2,2,2,2,
+#           1,1,1,1,1,
+#           1,1,1,1,1,
+#           1,1,1,1,1]
+
+WEIGHT = [4, 4, 3, 3, 2,
+          2, 2, 2, 2, 2,
+          1, 1, 1, 1, 1,
+          1, 1, 1, 1, 1, ]
 
 
 # OUTPUT TYPE Enum initial
@@ -45,9 +45,9 @@ def get_WEIGHT(size=200):
 def get_daily_df(someday_date, folder_path) -> pd.DataFrame:
     li = []
     dfd = pd.DataFrame()
-    some_date_str = someday_date.strftime('%y_%m_%d')
+    some_date_str = someday_date.strftime('%y-%m-%d')
 
-    files_path = os.path.join(folder_path, some_date_str + "_??.csv")
+    files_path = os.path.join(folder_path, some_date_str + "-??_00.csv")
     all_files = glob.glob(files_path)
 
     for file_path in all_files:
@@ -107,15 +107,14 @@ def get_dataFrame(today_date: datetime, folder_path, output_type: OUTPUT_TYPE) -
 
 def set_output_filename(some_date: datetime, output_type):
     result = 'error.csv'
-    some_date_str = some_date.strftime('%y-%m-%d')
     today_date_str = datetime.today().strftime('%y-%m-%d')
 
     if output_type == OUTPUT_TYPE.DAILY:
-        result = f'D_{some_date_str}[{today_date_str}]{TMP}.csv'
+        result = f'D_{some_date_str}{TMP}.csv'
 
     elif output_type == OUTPUT_TYPE.WEEKLY:
         week_number = (some_date.day - 1) // 7 + 1
-        result = f'W_{some_date.strftime("%y")}-{some_date.month:0>2}_{week_number:0>2}[{today_date_str}]{TMP}.csv'
+        result = f'W_{some_date.strftime("%y")}-{some_date.month:0>2}_{week_number:0>2}{TMP}.csv'
 
     elif output_type == OUTPUT_TYPE.TOTAL:
         result = f'T_[{today_date_str}]{TMP}.csv'
@@ -179,10 +178,10 @@ def get_keywords(corpus):
     tags = []
 
     for n, c in count.most_common():  # 상위 20개 저장
-        dics = {'keyword': n, 'count': c}
-        if len(dics['keyword']) >= 2 and len(tags) <= 49:
+        dics = {'word': n, 'freq': c}
+        if len(dics['word']) >= 2 and len(tags) <= 49:
             result.append(dics)
-            tags.append(dics['keyword'])
+            tags.append(dics['freq'])
 
     return result
 
@@ -190,7 +189,7 @@ def get_keywords(corpus):
 if __name__ == "__main__":
     ## 입출력 변수 설정
     output_type = OUTPUT_TYPE.DAILY
-    some_date_str = '21-03-24'
+    some_date_str = '21-05-16'
     some_date = datetime.today() - timedelta(days=0) if some_date_str == '' else datetime.strptime(some_date_str,'%y-%m-%d')
     #attrs = ['title', 'description', 'tags']
     attrs = ['title', 'description']
@@ -213,7 +212,7 @@ if __name__ == "__main__":
 
     # ## 결과 저장
     output_path = os.path.join(KEYWORD_FOLDER_PATH, set_output_filename(some_date, output_type))
-    df_output = pd.DataFrame(keywords_list).sort_values(by='count', ascending=False)
+    df_output = pd.DataFrame(keywords_list).sort_values(by='freq', ascending=False)
 
     df_output.to_csv(output_path)
     print('result =',set_output_filename(some_date, output_type))
