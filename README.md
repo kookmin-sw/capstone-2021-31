@@ -1,6 +1,6 @@
 
 # Trend 모아 Zoom🔍
-![크기변환 logo](https://user-images.githubusercontent.com/36405155/113472997-ba3ae700-94a1-11eb-8288-1e3726411386.png)
+[![크기변환 logo](https://user-images.githubusercontent.com/36405155/113472997-ba3ae700-94a1-11eb-8288-1e3726411386.png)](https://zoomsite.z13.web.core.windows.net/)
 
 <br>  
 
@@ -40,6 +40,7 @@ Through this, users can identify trends that are popular these days at a glance.
 <br>
   
 ## 2. 소개 영상
+사이트 주소 : https://zoomsite.z13.web.core.windows.net/
 [![모아 Zoom](https://user-images.githubusercontent.com/36405155/113856999-ee354580-97dc-11eb-8c7b-458c49224b7c.png)](https://youtu.be/OqO09HueNe8?t=0s)  
 
 <br>
