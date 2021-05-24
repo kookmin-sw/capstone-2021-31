@@ -1,7 +1,7 @@
 
 # Trend 모아 Zoom🔍
 [![크기변환 logo](https://user-images.githubusercontent.com/36405155/113472997-ba3ae700-94a1-11eb-8288-1e3726411386.png)](https://zoomsite.z13.web.core.windows.net/)
-
+(클릭시, 프로젝트 홈페이지로 이동합니다.)
 <br>  
 
 ## 1. 프로젝트 소개
@@ -40,12 +40,15 @@ Through this, users can identify trends that are popular these days at a glance.
 <br>
   
 ## 2. 소개 영상
-사이트 주소 : https://zoomsite.z13.web.core.windows.net/
 [![모아 Zoom](https://user-images.githubusercontent.com/36405155/113856999-ee354580-97dc-11eb-8c7b-458c49224b7c.png)](https://youtu.be/OqO09HueNe8?t=0s)  
-
+클릭시 소개 영상 유튜브로 이동합니다.
 <br>
-  
-## 3. 팀 소개
+
+## 3. 시연 영상
+사이트 주소 : https://zoomsite.z13.web.core.windows.net/
+[![모아 Zoom](https://user-images.githubusercontent.com/36405155/113856999-ee354580-97dc-11eb-8c7b-458c49224b7c.png)](https://youtu.be/fUDHKDZngLs?t=0s)  
+클릭시 소개 영상 유튜브로 이동합니다.
+## 4. 팀 소개
 
 ### 유지석(20153200)  
 **메일 : reo0704@koookmin.ac.kr**    
@@ -61,10 +64,6 @@ Through this, users can identify trends that are popular these days at a glance.
 ![정용훈](https://user-images.githubusercontent.com/36405155/113304579-23551a00-933d-11eb-83a2-47815ca503d8.jpg)
   
 <br>
-  
-## 4. 사용법 
-아직 사이트 생성하지 아니함.  
-추후 사이트 생성시, 사이트 url 첨부 예정
   
 <br>
   
