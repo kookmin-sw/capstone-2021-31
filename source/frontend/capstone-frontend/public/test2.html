@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trend 모아 Zoom</title>
+    <link rel = "icon"
+      type="image/icon"
+      sizes='128x128'
+      href ="./assets/img/favicon.png"
+
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="./assets/js/init-alpine.js"></script>
+    <style>
+      text:hover {
+        stroke: black;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="d3.layout.cloud.js"></script>
+  </head>
+  <body>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div class="flex flex-col flex-1 w-full">
+        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+          <div
+            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+          >
+            <!-- 사이트 로고 -->
+            <div class='py-1 text-gray-500 dark:text-gray-400'>
+              <div
+                class='container ml-6 text-2xl font-semibold text-gray-800 dark:text-gray-200'
+              >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 595.28 841.89" style="enable-background:new 0 0 595.28 841.89;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0{fill:#001316;stroke:#001316;stroke-miterlimit:10;}
+                    .st1{fill:#2F4D4F;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+                    .st2{fill:#829D9E;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+                    .st3{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+                    .st4{fill:#D7F2F2;stroke:#002F3A;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                    .st5{fill:#FF0000;stroke:#001316;stroke-width:5;stroke-miterlimit:10;}
+                    .st6{fill:#FC6363;stroke:#002F3A;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                    .st7{fill:#FFFFFF;stroke:#001316;stroke-width:5;stroke-miterlimit:10;}
+                    .st8{fill:#FFFFFF;}
+                    .st9{fill:none;stroke:#FFFFFF;stroke-width:13;stroke-linecap:round;stroke-miterlimit:10;}
+                  </style>
+                  <rect x="219.34" y="356.46" transform="matrix(0.6843 0.7292 -0.7292 0.6843 353.5047 -88.77)" class="st0" width="119.85" height="14.82"/>
+                    <path class="st1" d="M376.95,500.54l-76.93-81.98c-4.52-4.81-4.27-12.45,0.54-16.96l12.65-11.87c4.81-4.52,12.45-4.27,16.96,0.54
+                      l76.93,81.98c4.52,4.81,4.27,12.45-0.54,16.96l-12.65,11.87C389.1,505.59,381.47,505.35,376.95,500.54z"/>
+                    <path class="st2" d="M379.74,486.3l-63.72-67.9c-2.22-2.36-2.1-6.11,0.26-8.33l3.08-2.89c2.36-2.22,6.11-2.1,8.33,0.26l63.72,67.9
+                      c2.22,2.36,2.1,6.11-0.26,8.33l-3.08,2.89C385.71,488.78,381.96,488.66,379.74,486.3z"/>
+                    <circle class="st3" cx="381.64" cy="477.37" r="4.39"/>
+                    <circle class="st4" cx="197.71" cy="257.71" r="105.5"/>
+                    <path class="st5" d="M311.19,305.69l-102.71-0.65c-12.88-0.08-23.36-10.69-23.28-23.57l0.37-58.95
+                      c0.08-12.88,10.69-23.36,23.57-23.28l102.71,0.65c12.88,0.08,23.36,10.69,23.28,23.57l-0.37,58.95
+                      C334.68,295.29,324.07,305.77,311.19,305.69z"/>
+                    <path class="st6" d="M378.42,128.06"/>
+                    <polygon class="st7" points="288.21,252.02 241.81,224.83 241.47,278.62 "/>
+                    <circle class="st8" cx="169.69" cy="331.88" r="7.45"/>
+                    <path class="st9" d="M122.23,268.6c0,0-6.35,30.33,28.34,51.97"/>
+              </svg>
+              </div>
+            </div>
+            <!-- 검색버튼 -->
+            <div class="flex justify-center flex-1 lg:mr-32">
+              <div
+                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
+              >
+                <div class="absolute inset-y-0 flex items-center pl-2">
+                  <svg
+                    class="w-4 h-4"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  type="text"
+                  placeholder="Search for Keywords"
+                  aria-label="Search"
+                />
+              </div>
+            </div>
+            <!-- 다크모드 &&  구독버튼 -->
+            <ul class="flex items-center flex-shrink-0 space-x-6">
+              <!-- Theme toggler -->
+              <li class="flex">
+                <button
+                  class="rounded-md focus:outline-none focus:shadow-outline-purple"
+                  @click="toggleTheme"
+                  aria-label="Toggle color mode"
+                >
+                  <template x-if="!dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                      ></path>
+                    </svg>
+                  </template>
+                  <template x-if="dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </template>
+                </button>
+              </li>
+            <div>
+              <button
+                @click="openModal"
+                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              >
+                Subscribe
+              </button>
+            </div>
+            </ul>
+          </div>
+        </header>
+        <main class="h-full overflow-y-auto">
+          <div class="container px-6 mx-auto grid">
+            <h2
+              class="flex justify-center my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              N월 N주차
+            </h2>
+
+            <!-- 워드클라우드 -->
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              워드클라우드
+            </h2>
+            <div class="grid gap-6 mb-8 md:grid-cols-1">
+              <div
+                class="flex justify-center min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <div id="cloud"></div>
+              </div>
+            </div>
+
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              핫키워드
+            </h2>
+
+            <!-- New Table -->
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr
+                      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                    >
+                      <th class="px-4 py-3 text-lg">키워드순위</th>
+                      <th class="px-4 py-3 text-lg">키워드</th>
+                      <th class="px-4 py-3 text-lg">Count</th>
+                      <th class='px-4 py-3 text-lg'>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                  >
+                    <tr class="text-gray-700 dark:text-gray-400 ">
+                      <td class='px-4 py-3'>1</td>
+                      <td class='px-4 py-3'>a</td>
+                      <td class='px-4 py-3'>b</td>
+                      <td class='px-4 py-3'>c</td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hans Burger</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Jolina Angelie</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Unemployed
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 369.95
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                          Pending
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Sarah Curry</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Designer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 86.00
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                        >
+                          Denied
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Rulia Joberts</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Actress
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 1276.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Wenzel Dashington</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Actor
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                        >
+                          Expired
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1502720705749-871143f0e671?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=b8377ca9f985d80264279f277f3a67f5"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Dave Li</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Influencer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Maria Ramovic</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Runner
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1566411520896-01e7ca4726af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hitney Wouston</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Singer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hans Burger</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+              >
+                <span class="flex items-center col-span-3">
+                  Showing 21-30 of 100
+                </span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                  <nav aria-label="Table navigation">
+                    <ul class="inline-flex items-center">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Previous"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="w-4 h-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          4
+                        </button>
+                      </li>
+                      <li>
+                        <span class="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          8
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Next"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div
+      x-show="isModalOpen"
+      x-transition:enter="transition ease-out duration-150"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="fixed inset-0 z-30 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+    >
+      <!-- Modal -->
+      <div
+        x-show="isModalOpen"
+        x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="opacity-0 transform translate-y-1/2"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0  transform translate-y-1/2"
+        @click.away="closeModal"
+        @keydown.escape="closeModal"
+        class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
+        role="dialog"
+        id="modal"
+      >
+
+        <!-- Modal body -->
+        <div class="mt-4 mb-6">
+          <!-- Modal title -->
+          <p
+            class="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300"
+          >
+            구독하기
+          </p>
+          <!-- Modal description -->
+          <p class="text-sm text-gray-700 dark:text-gray-400">
+            <div>
+              <input
+                  class="w-full pl-2 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  type="text"
+                  placeholder="E-mail"
+                  aria-label="Search"
+                />
+            </div>
+          </p>
+        </div>
+        <footer
+          class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800"
+        >
+          <button
+            @click="closeModal"
+            class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
+          >
+            취소
+          </button>
+          <button
+            class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+          >
+            구독
+          </button>
+        </footer>
+      </div>
+    </div>
+    <!-- End of modal backdrop -->
+    <script type="text/javascript">
+    var weight = 0.7,   // change me
+        width = 1200,
+        height = 600;
+
+    var fill = d3.scale.category20();
+    d3.csv("words.csv", function(d) {
+        return {
+          text: d.word,
+          size: +d.freq*weight
+        }
+      },
+      function(data) {
+        d3.layout.cloud().size([width, height]).words(data)
+          //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .rotate(0)
+          .font("Impact")
+          .fontSize(function(d) { return d.size; })
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select("#cloud").append("svg")
+              .attr("width", width)
+              .attr("height", height)
+            .append("g")
+              .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+            .selectAll("text")
+              .data(words)
+            .enter().append("text")
+              .style("font-size", function(d) { return d.size + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", function(d, i) { return fill(i); })
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+            .text(function(d) { return d.text; });
+        }
+      });
+  </script>
+  </body>
+</html>

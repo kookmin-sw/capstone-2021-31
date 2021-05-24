@@ -1,0 +1,29 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 595.28 841.89" style="enable-background:new 0 0 595.28 841.89;" xml:space="preserve">
+  <style type="text/css">
+    .st0{fill:#001316;stroke:#001316;stroke-miterlimit:10;}
+    .st1{fill:#2F4D4F;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+    .st2{fill:#829D9E;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+    .st3{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+    .st4{fill:#D7F2F2;stroke:#002F3A;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+    .st5{fill:#FF0000;stroke:#001316;stroke-width:5;stroke-miterlimit:10;}
+    .st6{fill:#FC6363;stroke:#002F3A;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+    .st7{fill:#FFFFFF;stroke:#001316;stroke-width:5;stroke-miterlimit:10;}
+    .st8{fill:#FFFFFF;}
+    .st9{fill:none;stroke:#FFFFFF;stroke-width:13;stroke-linecap:round;stroke-miterlimit:10;}
+  </style>
+<rect x="219.34" y="356.46" transform="matrix(0.6843 0.7292 -0.7292 0.6843 353.5047 -88.77)" class="st0" width="119.85" height="14.82"/>
+  <path class="st1" d="M376.95,500.54l-76.93-81.98c-4.52-4.81-4.27-12.45,0.54-16.96l12.65-11.87c4.81-4.52,12.45-4.27,16.96,0.54
+    l76.93,81.98c4.52,4.81,4.27,12.45-0.54,16.96l-12.65,11.87C389.1,505.59,381.47,505.35,376.95,500.54z"/>
+  <path class="st2" d="M379.74,486.3l-63.72-67.9c-2.22-2.36-2.1-6.11,0.26-8.33l3.08-2.89c2.36-2.22,6.11-2.1,8.33,0.26l63.72,67.9
+    c2.22,2.36,2.1,6.11-0.26,8.33l-3.08,2.89C385.71,488.78,381.96,488.66,379.74,486.3z"/>
+  <circle class="st3" cx="381.64" cy="477.37" r="4.39"/>
+  <circle class="st4" cx="197.71" cy="257.71" r="105.5"/>
+  <path class="st5" d="M311.19,305.69l-102.71-0.65c-12.88-0.08-23.36-10.69-23.28-23.57l0.37-58.95
+    c0.08-12.88,10.69-23.36,23.57-23.28l102.71,0.65c12.88,0.08,23.36,10.69,23.28,23.57l-0.37,58.95
+    C334.68,295.29,324.07,305.77,311.19,305.69z"/>
+  <path class="st6" d="M378.42,128.06"/>
+  <polygon class="st7" points="288.21,252.02 241.81,224.83 241.47,278.62 "/>
+  <circle class="st8" cx="169.69" cy="331.88" r="7.45"/>
+  <path class="st9" d="M122.23,268.6c0,0-6.35,30.33,28.34,51.97"/>
+</svg>
