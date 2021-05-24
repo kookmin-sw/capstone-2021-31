@@ -62,7 +62,7 @@ Through this, users can identify trends that are popular these days at a glance.
 <br>
   
 ## 4. 사용법 
-아직 사이트 생성하지 아니함.  
+사이트 주소 : (https://zoomsite.z13.web.core.windows.net/)
 추후 사이트 생성시, 사이트 url 첨부 예정
   
 <br>
