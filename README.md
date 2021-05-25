@@ -71,7 +71,7 @@ Through this, users can identify trends that are popular these days at a glance.
 
 🔨**라이브러리/오픈소스**
 
-프론트 엔드 : vue.js & tailwindcss  
+프론트 엔드 : html & tailwindcss & javascript  
 백엔드 : Django  
 데이터 수집/처리 : YouTube data API & Konlpy  
 
